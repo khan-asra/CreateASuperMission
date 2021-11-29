@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Create Mission</title>
+<link  rel="stylesheet"  type="text/css" th:href="@{/style/style.css}" />
+</head>
+<body>
+
+<h2 th:text="|Create the Mission |">Create the Mission</h2>
+<div>
+
+<form action="#" th:action='@{/createMission}' th:object="${mission}" method="POST">
+<p>Mission title: <input type="text" th:field="*{title}" required ></p><br>
+<p> Agent:
+<select th:field="*{agent}">
+
+<option th:each="agent:*{agents}"  th:value="${agent}" th:text="${agent}"></option>
+</select></p>
+<h3 th:text="|Enter the gadgets|">Enter the gadgets</h3>
+<p>Gadget 1: <input type="text" th:field= "*{gadget1}"></p>
+<p>Gadget 2: <input type="text" th:field= "*{gadget2}"></p>
+<input type="submit" value ="Create Mission!">
+</form>
+
+<br>
+<br>
+
+<a href="#" th:href="@{/}">Back to home</a>
+</div>
+</body>
+</html>

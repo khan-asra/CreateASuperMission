@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>View Mission</title>
+<link  rel="stylesheet"  type="text/css" th:href="@{/style/style.css}" />
+
+</head>
+<body>
+<h2 th:text="|Here are the missions for ${agent}|" >Here are the mission for </h2>
+
+<div th:if="${missionsList.empty}"><h2> No Current Missions </h2> </div>
+
+<div th:unless="${missionsList.empty}">
+<table>
+
+<tr>
+
+<th>Mission Title</th>
+<th>Gadget 1</th>
+<th>Gadget 2</th>
+<th>Operations</th>
+</tr>
+<tr th:each="mission : ${missionsList}">
+
+<td th:text="${mission.title}"></td>
+<td th:text="${mission.gadget1}"></td>
+<td th:text="${mission.gadget2}"></td>
+
+<td ><a href="" th:href="@{/editMission/} + ${mission.id}">edit</a> 
+<a href="" th:href="@{/deleteMission/} + ${mission.id}">delete</a></td>
+
+</tr>
+
+</table>
+
+</div>
+
+<a th:href="@{/}">Back to home</a>
+
+</body>
+</html>

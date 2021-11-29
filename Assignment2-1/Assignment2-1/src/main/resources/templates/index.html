@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="UTF-8">
+<title>Super Spy App</title>
+<link  rel="stylesheet"  type="text/css" th:href="@{/style/style.css}" />
+</head>
+<body>
+
+
+<h2> Our Super Cool Spy App</h2>
+<div>
+
+
+<h3>Create a Mission </h3>
+ <a href = "#" th:href="@{/addMission}"><button>Create a Mission</button></a>
+ 
+ <h3>View Mission for:</h3>
+ 
+
+ 
+ <form action="#" th:action="@{/viewMission} " method="get" 
+ th:object= "${mission}">
+ 
+ 
+<select th:field="*{agent}">
+ <option th:each="agent:*{agents}"
+ th:value="${agent}" th:text="${agent}"></option>
+  </select>
+  <p>
+  
+  
+  
+  <input type="submit" value="Go!"></p>
+ 
+
+ </form> 
+ </div>
+
+</body>
+</html>
